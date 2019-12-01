@@ -1,0 +1,77 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="producto_ingrediente_form">
+			<field name="name">producto_ignrediente_form</field>
+			<field name="model">producto.ingrediente</field>
+			<field name="arch" type="xml">
+				<form string="Form of ingrediente">
+					<group string="Ingredientes">
+						<field name="name" />
+						<field name="nombre" />
+						<field name="cantidad" />
+						<field name="caducidad" />
+						<field name="proveedor_id"/>
+					</group>
+					<field name="bocata_ids" nolabel="1" colspan="4">
+						<tree>
+							<field name="name" />
+							<field name="nombre" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="producto_ingrediente_tree_view">
+			<field name="name">producto_ingrediente_tree_view</field>
+			<field name="model">producto.ingrediente</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="nombre" />
+					<field name="cantidad" />
+					<field name="caducidad" />
+					<field name="bocata_ids" />
+					<field name="proveedor_id"/>
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="producto_ingrediente_graph">
+		<field name="name">Ingredientes</field>
+		<field name="model">producto.ingrediente</field>
+		<field name="arch" type="xml">
+		<graph string="Cantidad por ingrediente" type="bar">
+		<field name="nombre" type="row"/>
+		<field name="cantidad" type="measure"/>
+		</graph>
+		</field>
+		</record>
+
+
+
+		<record model="ir.ui.view" id="caducidad_calendar_view">
+		<field name="name">Ingredientes</field>
+		<field name="model">producto.ingrediente</field>
+		<field name="arch" type="xml">
+		<calendar string="Calendar View"
+		date_start="caducidad"
+		color="name">
+		<field name="name" />
+		</calendar>
+		</field>
+		</record>
+
+		<record id="act_ingrediente" model="ir.actions.act_window">
+			<field name="name">Ingredientes</field>
+			<field name="res_model">producto.ingrediente</field>
+			<field name="view_mode">tree,form,graph,calendar</field>
+		</record>
+		<menuitem id="producto" name="Producto" action="act_ingrediente" />
+		<menuitem name="Ingredientes" id="ingrediente_submenu"
+			parent="producto" sequence="100" />
+		<menuitem name="Ver Ingredientes" id="ingrediente_submenu_2"
+			parent="ingrediente_submenu" sequence="100" action="act_ingrediente" />
+	</data>
+</odoo>

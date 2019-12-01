@@ -1,0 +1,62 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="producto_proveedor_form">
+			<field name="name">producto_proveedor_form</field>
+			<field name="model">producto.proveedor</field>
+			<field name="arch" type="xml">
+				<form string="Form of proveedor">
+					<group string="Proveedores">
+						<field name="name" />
+						<field name="nif" />
+						<field name="direccion" />
+					</group>
+					<group>
+					<field name="ingrediente_ids" nolabel="1" colspan="4">
+						<tree>
+							<field name="name" />
+							<field name="nombre" />
+						</tree>
+					</field>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="producto_proveedor_tree_view">
+			<field name="name">producto_proveedor_tree_view</field>
+			<field name="model">producto.proveedor</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="nif" />
+					<field name="direccion" />
+					<field name="ingrediente_ids"/>
+					
+				</tree>
+			</field>
+		</record>
+		
+		<record id="view_filter_proveedor" model="ir.ui.view">
+			<field name="model">producto.proveedor</field>
+			<field name="arch" type="xml">
+			<search>
+				<field name="name"/>
+				<field name="nif"/>
+				<field name="direccion"/>
+				<filter string="Ingredientes > 5" domain="[('ingrediente_ids','>',5)]"/>
+			</search>
+			</field>
+		</record>
+
+		<record id="act_proveedor" model="ir.actions.act_window">
+			<field name="name">Proveedores</field>
+			<field name="res_model">producto.proveedor</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="producto" name="Producto" action="act_proveedor" />
+		<menuitem name="Ingredientes" id="proveedor_submenu"
+			parent="producto" sequence="100" />
+		<menuitem name="Ver Proveedores" id="proveedor_submenu_2"
+			parent="proveedor_submenu" sequence="100" action="act_proveedor" />
+	</data>
+</odoo>

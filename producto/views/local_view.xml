@@ -65,10 +65,21 @@
 		</record>
 		
 
+		<record model="ir.ui.view" id="producto_local_graph">
+		<field name="name">Locales</field>
+		<field name="model">producto.local</field>
+		<field name="arch" type="xml">
+		<graph string="Empleados por local" type="bar">
+		<field name="name" type="row"/>
+		<field name="total_empleados" type="measure"/>
+		</graph>
+		</field>
+		</record>
+
 		<record id="act_local" model="ir.actions.act_window">
 			<field name="name">Locales</field>
 			<field name="res_model">producto.local</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,graph</field>
 		</record>
 		<menuitem id="producto" name="Producto" action="act_local" />
 		<menuitem name="Locales" id="local_submenu"

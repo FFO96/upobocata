@@ -18,7 +18,6 @@
 						<field name="name" />
 						<field name="nombre" />
 						<field name="proveedor_id"/>
-						<field name="total_bocatas"/>
 					</group>
 					<field name="bocata_ids" nolabel="1" colspan="4">
 						<tree>
@@ -39,7 +38,6 @@
 					<field name="nombre" />
 					<field name="bocata_ids" />
 					<field name="proveedor_id"/>
-					<field name="total_bocatas"/>
 				</tree>
 			</field>
 		</record>

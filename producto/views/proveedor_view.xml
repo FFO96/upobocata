@@ -49,11 +49,25 @@
 			</search>
 			</field>
 		</record>
+		
+		
+		
+		<record model="ir.ui.view" id="producto_proveedor_graph">
+		<field name="name">Proveedores</field>
+		<field name="model">producto.proveedor</field>
+		<field name="arch" type="xml">
+		<graph string="Ingredientes de los proveedores" type="bar">
+		<field name="name" type="row"/>
+		<field name="total_ingredientes" type="measure"/>
+		</graph>
+		</field>
+		</record>
+		
 
 		<record id="act_proveedor" model="ir.actions.act_window">
 			<field name="name">Proveedores</field>
 			<field name="res_model">producto.proveedor</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,graph</field>
 		</record>
 		<menuitem id="producto" name="Producto" action="act_proveedor" />
 		<menuitem name="Proveedores" id="proveedor_submenu"

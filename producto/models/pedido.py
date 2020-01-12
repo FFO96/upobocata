@@ -13,7 +13,7 @@ class pedido(models.Model):
     hora_reparto = fields.Datetime(string='Hora del reparto', readonly=True)
     observaciones = fields.Char('Observaciones del pedido', size=64)
     direccion_envio = fields.Char(string='Dirección de entrega', size=64)
-    importe_total =  fields.Float('Importe total del pedido', compute='_sumatorioPrecios')
+    importe_total =  fields.Float('Importe total del pedido', compute='_sumatorioPrecios', store=True)
     en_reparto = fields.Char('En reparto:', default='No', readonly=True)
     
     cliente_id = fields.Many2one("producto.cliente","Cliente")

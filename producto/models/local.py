@@ -5,8 +5,14 @@ class local(models.Model):
     
     name = fields.Char('Nombre del local', size=64, required=True)
     direccion =  fields.Char("Dirección del local", size=128)
-    #ingrediente_ids = fields.Many2many("producto.ingrediente",string="Ingredientes del bocata")
     empleado_ids = fields.One2many("producto.empleado","local_id", "Empleados")
     vehiculo_ids = fields.One2many("producto.vehiculo","local_id", "Empleados")
     pedido_ids = fields.One2many("producto.pedido","local_id", "Pedidos")
     stockingredientes_ids = fields.One2many("producto.stockingredientes","local_id", "Stockingredientes")
+    total_empleados=  fields.Integer('Total de empleados del local',compute='_sumatorioEmpleados', store=True)
+    
+    @api.one
+    def _sumatorioEmpleados(self):
+        self.total_empleados = 0
+        for line in self.empleado_ids:
+            self.total_empleados += 1

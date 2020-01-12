@@ -12,6 +12,7 @@ class bocata(models.Model):
     ingrediente_ids = fields.Many2many("producto.ingrediente",string="Ingredientes del bocata")
     stockbocata_ids = fields.Many2many("producto.stockbocata",string="Stock del bocata")
     
+    
     @api.constrains('precio', 'nombre')
     def _check_precio(self):
         for bocata in self: 

@@ -56,12 +56,21 @@
 		</field>
 		</record>
 		
-		
+		<record model="ir.ui.view" id="producto_stockingredientes_graph">
+		<field name="name">Stock de ingredientes</field>
+		<field name="model">producto.stockingredientes</field>
+		<field name="arch" type="xml">
+		<graph string="Numero de ingrediente por stock" type="bar">
+		<field name="name" type="row"/>
+		<field name="cantidad" type="measure"/>
+		</graph>
+		</field>
+		</record>
 
 		<record id="act_stockingredientes" model="ir.actions.act_window">
 			<field name="name">StockIngredientes</field>
 			<field name="res_model">producto.stockingredientes</field>
-			<field name="view_mode">tree,form,calendar</field>
+			<field name="view_mode">tree,form,calendar,graph</field>
 		</record>
 		<menuitem id="producto" name="Producto" action="act_stockingredientes" />
 		<menuitem name="Stockingredientes" id="stockingredientes_submenu"

@@ -10,7 +10,7 @@ class ingrediente(models.Model):
     bocata_ids = fields.Many2many("producto.bocata",string="Bocatas con el ingrediente")
     proveedor_id = fields.Many2one("producto.proveedor","Proveedor")
     stockingrediente_id = fields.Many2many("producto.stockingredientes",string="Stock del ingrediente")
-    total_bocatas=  fields.Integer('Total de bocatas con el ingrediente',compute='_sumatorioBocatas')
+    total_bocatas =  fields.Integer('Total de bocatas con el ingrediente',compute='_sumatorioBocatas', store=True)
     
     @api.one
     def _sumatorioBocatas(self):

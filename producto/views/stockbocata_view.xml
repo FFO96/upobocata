@@ -1,0 +1,64 @@
+<odoo>
+	<data>
+		
+		
+		<record id="increment_id_stockbocata_sequence" model="ir.sequence">
+			    <field name="name">Field Incrementation</field>
+			    <field name="code">increment_id_stockbocata</field>
+			    <field name="prefix"></field>
+			    <field name="padding">3</field>
+			    <field name="company_id" eval="False"/>
+		</record>
+		
+		<record model="ir.ui.view" id="producto_stockbocata_form">
+			<field name="name">producto_stockbocata_form</field>
+			<field name="model">producto.stockbocata</field>
+			<field name="arch" type="xml">
+				<form string="Form of stockbocata">
+					<group string="Stockbocata">
+						<field name="name" />
+						<field name="nombre" />
+						<field name="precio" />
+						<field name="cantidad"/>
+					</group>
+					<field name="bocata_id" nolabel="1" colspan="4">
+						<tree>
+							<field name="name" />
+							<field name="nombre" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="producto_stockbocata_tree_view">
+			<field name="name">producto_stockbocata_tree_view</field>
+			<field name="model">producto.stockbocata</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="nombre" />
+					<field name="precio" />
+					<field name="cantidad"/>
+					<field name="bocata_id"/>
+				</tree>
+			</field>
+		</record>
+		
+
+		<record id="act_stockbocata" model="ir.actions.act_window">
+			<field name="name">StockBocata</field>
+			<field name="res_model">producto.stockbocata</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="producto" name="Producto" action="act_stockbocata" />
+		<menuitem name="Stockbocata" id="stockbocata_submenu"
+			parent="producto" sequence="100" />
+		<menuitem name="Ver Stockbocata" id="stockbocata_submenu_2"
+			parent="stockbocata_submenu" sequence="100" action="act_stockbocata" />
+	</data>
+</odoo>
+
+
+
+

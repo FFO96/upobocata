@@ -1,0 +1,79 @@
+<odoo>
+	<data>
+		
+		<record model="ir.ui.view" id="producto_local_form">
+			<field name="name">producto_local_form</field>
+			<field name="model">producto.local</field>
+			<field name="arch" type="xml">
+				<form string="Form of local">
+					<group string="Locales">
+						<field name="name" />
+						<field name="direccion" />
+						
+					</group>
+					<field name="stockingredientes_ids" nolabel="1" colspan="4">
+						<tree>
+							<field name="name" />
+							<field name="nombre" />
+							<field name="cantidad" />
+							<field name="caducidad" />
+						</tree>
+					</field>
+					<group>
+					<field name="empleado_ids" nolabel="1" colspan="4">
+						<tree>
+							<field name="name" />
+							<field name="dni" />
+							<field name="nombre" />
+						</tree>
+					</field>
+					</group>
+					<group>
+					<field name="vehiculo_ids" nolabel="1" colspan="4">
+						<tree>
+							<field name="name" />
+							<field name="matricula" />
+						</tree>
+					</field>
+					</group>
+					<group>
+					<field name="pedido_ids" nolabel="1" colspan="4">
+						<tree>
+							<field name="name" />
+							<field name="fecha_hora" />
+							<field name="nombre_cliente" />
+						</tree>
+					</field>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="producto_local_tree_view">
+			<field name="name">producto_local_tree_view</field>
+			<field name="model">producto.local</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="direccion" />
+					<field name="stockingredientes_ids" />
+					<field name="empleado_ids" />
+					<field name="vehiculo_ids" />
+					<field name="pedido_ids" />
+				</tree>
+			</field>
+		</record>
+		
+
+		<record id="act_local" model="ir.actions.act_window">
+			<field name="name">Locales</field>
+			<field name="res_model">producto.local</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="producto" name="Producto" action="act_local" />
+		<menuitem name="Locales" id="local_submenu"
+			parent="producto" sequence="100" />
+		<menuitem name="Ver locales" id="local_submenu_2"
+			parent="local_submenu" sequence="100" action="act_local" />
+	</data>
+</odoo>

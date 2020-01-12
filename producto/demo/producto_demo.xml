@@ -1,0 +1,128 @@
+<odoo>
+    <data >
+    
+    
+    <record id="bocata1" model="producto.bocata">
+<field name="name">1</field>
+<field name="nombre">Bocata de atun</field>
+<field name="precio">4.95</field>
+</record>
+<record id="bocata2" model="producto.bocata">
+<field name="name">2</field>
+<field name="nombre">Bocata de jamon y queso</field>
+<field name="precio">3.75</field>
+</record>
+
+<record id="ingrediente1" model="producto.ingrediente">
+<field name="name">1</field>
+<field name="nombre">Pan</field>
+</record>
+<record id="ingrediente2" model="producto.ingrediente">
+<field name="name">2</field>
+<field name="nombre">Atun</field>
+</record>
+<record id="ingrediente3" model="producto.ingrediente">
+<field name="name">3</field>
+<field name="nombre">Jamon</field>
+</record>
+<record id="ingrediente4" model="producto.ingrediente">
+<field name="name">4</field>
+<field name="nombre">Queso</field>
+</record>
+
+<record id="proveedor1" model="producto.proveedor">
+<field name="name">Makro</field>
+<field name="nif">28567832</field>
+</record>
+<record id="proveedor2" model="producto.proveedor">
+<field name="name">Productos Guadaira</field>
+<field name="nif">28567345</field>
+</record>
+
+
+<record id="cliente1" model="producto.cliente">
+<field name="name">1</field>
+<field name="dni">28853245G</field>
+<field name="nombre">Fernando Fidalgo Oliveres</field>
+</record>
+<record id="cliente2" model="producto.cliente">
+<field name="name">2</field>
+<field name="dni">28853243E</field>
+<field name="nombre">Alberto Machado Garcia</field>
+</record>
+<record id="cliente3" model="producto.cliente">
+<field name="name">3</field>
+<field name="dni">28853211T</field>
+<field name="nombre">Patricio Guerra Marquez</field>
+</record>
+
+<record id="empleado1" model="producto.empleado">
+<field name="name">1</field>
+<field name="dni">28853278D</field>
+<field name="nombre">Antonio Martinez</field>
+</record>
+<record id="empleado2" model="producto.empleado">
+<field name="name">2</field>
+<field name="dni">28853266G</field>
+<field name="nombre">Ramon Garcia</field>
+</record>
+
+<record id="local1" model="producto.local">
+<field name="name">Bocateria Dos Hermanas</field>
+<field name="direccion">Larache,4</field>
+</record>
+<record id="local2" model="producto.local">
+<field name="name">Bocateria Montequinto</field>
+<field name="direccion">Pinoquinto,5</field>
+</record>
+
+<record id="vehiculo1" model="producto.vehiculo">
+<field name="name">1</field>
+<field name="matricula">8877KFM</field>
+<field name="fechaAlta">04/01/2020</field>
+</record>
+<record id="vehiculo2" model="producto.vehiculo">
+<field name="name">2</field>
+<field name="matricula">4693FLT</field>
+<field name="fechaAlta">07/01/2020</field>
+</record>
+
+<record id="oferta1" model="producto.oferta">
+<field name="name">1</field>
+<field name="nombre">Oferta del 30%</field>
+<field name="descuento">0.3</field>
+</record>
+<record id="oferta2" model="producto.oferta">
+<field name="name">1</field>
+<field name="nombre">Oferta del 50%</field>
+<field name="descuento">0.5</field>
+</record>
+
+        <!--  -->
+        <!--   <record id="object0" model="producto.producto"> -->
+        <!--     <field name="name">Object 0</field> -->
+        <!--     <field name="value">0</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object1" model="producto.producto"> -->
+        <!--     <field name="name">Object 1</field> -->
+        <!--     <field name="value">10</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object2" model="producto.producto"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--     <field name="value">20</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object3" model="producto.producto"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--     <field name="value">30</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="producto.producto"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--     <field name="value">40</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</odoo>

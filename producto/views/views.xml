@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="producto.list">
+      <field name="name">producto list</field>
+      <field name="model">producto.producto</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="producto.action_window">
+      <field name="name">producto window</field>
+      <field name="res_model">producto.producto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="producto.action_server">
+      <field name="name">producto server</field>
+      <field name="model_id" ref="model_producto_producto"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="producto" id="producto.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="producto.menu_1" parent="producto.menu_root"/>
+    <menuitem name="Menu 2" id="producto.menu_2" parent="producto.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="producto.menu_1_list" parent="producto.menu_1"
+              action="producto.action_window"/>
+    <menuitem name="Server to list" id="producto" parent="producto.menu_2"
+              action="producto.action_server"/>
+    -->
+  </data>
+</odoo>

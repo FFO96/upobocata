@@ -1,0 +1,76 @@
+<odoo>
+	<data>
+		
+		
+		<record id="increment_id_stockingredientes_sequence" model="ir.sequence">
+			    <field name="name">Field Incrementation</field>
+			    <field name="code">increment_id_stockingredientes</field>
+			    <field name="prefix"></field>
+			    <field name="padding">3</field>
+			    <field name="company_id" eval="False"/>
+		</record>
+		
+		<record model="ir.ui.view" id="producto_stockingredientes_form">
+			<field name="name">producto_stockingredientes_form</field>
+			<field name="model">producto.stockingredientes</field>
+			<field name="arch" type="xml">
+				<form string="Form of stockingredientes">
+					<group string="StockIngredientes">
+						<field name="name" />
+						<field name="nombre" />
+						<field name="caducidad" />
+						<field name="cantidad"/>
+					</group>
+					<field name="ingrediente_id" nolabel="1" colspan="4">
+						<tree>
+							<field name="name" />
+							<field name="nombre" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="producto_stockingredientes_tree_view">
+			<field name="name">producto_stockingredientes_tree_view</field>
+			<field name="model">producto.stockingredientes</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="nombre" />
+					<field name="caducidad" />
+					<field name="cantidad"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="caducidad_calendar_view">
+		<field name="name">Ingredientes</field>
+		<field name="model">producto.stockingredientes</field>
+		<field name="arch" type="xml">
+		<calendar string="Calendar View"
+		date_start="caducidad"
+		color="nombre">
+		<field name="nombre" />
+		</calendar>
+		</field>
+		</record>
+		
+		
+
+		<record id="act_stockingredientes" model="ir.actions.act_window">
+			<field name="name">StockIngredientes</field>
+			<field name="res_model">producto.stockingredientes</field>
+			<field name="view_mode">tree,form,calendar</field>
+		</record>
+		<menuitem id="producto" name="Producto" action="act_stockingredientes" />
+		<menuitem name="Stockingredientes" id="stockingredientes_submenu"
+			parent="producto" sequence="100" />
+		<menuitem name="Ver stockingredientes" id="stockingredientes_submenu_2"
+			parent="stockingredientes_submenu" sequence="100" action="act_stockingredientes" />
+	</data>
+</odoo>
+
+
+
+

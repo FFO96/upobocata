@@ -1,0 +1,71 @@
+<odoo>
+	<data>
+	
+		<record id="increment_id_ingrediente_sequence" model="ir.sequence">
+			    <field name="name">Field Incrementation</field>
+			    <field name="code">increment_id_ingrediente</field>
+			    <field name="prefix"></field>
+			    <field name="padding">3</field>
+			    <field name="company_id" eval="False"/>
+		</record>
+	
+		<record model="ir.ui.view" id="producto_ingrediente_form">
+			<field name="name">producto_ingrediente_form</field>
+			<field name="model">producto.ingrediente</field>
+			<field name="arch" type="xml">
+				<form string="Form of ingrediente">
+					<group string="Ingredientes">
+						<field name="name" />
+						<field name="nombre" />
+						<field name="proveedor_id"/>
+						<field name="total_bocatas"/>
+					</group>
+					<field name="bocata_ids" nolabel="1" colspan="4">
+						<tree>
+							<field name="name" />
+							<field name="nombre" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="producto_ingrediente_tree_view">
+			<field name="name">producto_ingrediente_tree_view</field>
+			<field name="model">producto.ingrediente</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="nombre" />
+					<field name="bocata_ids" />
+					<field name="proveedor_id"/>
+					<field name="total_bocatas"/>
+				</tree>
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="producto_ingrediente_graph">
+		<field name="name">Ingredientes</field>
+		<field name="model">producto.ingrediente</field>
+		<field name="arch" type="xml">
+		<graph string="Bocatas por ingrediente" type="bar">
+		<field name="nombre" type="row"/>
+		<field name="total_bocatas" type="measure"/>
+		</graph>
+		</field>
+		</record>
+		
+
+		<record id="act_ingrediente" model="ir.actions.act_window">
+			<field name="name">Ingredientes</field>
+			<field name="res_model">producto.ingrediente</field>
+			<field name="view_mode">tree,form,graph</field>
+		</record>
+		<menuitem id="producto" name="Producto" action="act_ingrediente" />
+		<menuitem name="Ingredientes" id="ingrediente_submenu"
+			parent="producto" sequence="100" />
+		<menuitem name="Ver Ingredientes" id="ingrediente_submenu_2"
+			parent="ingrediente_submenu" sequence="100" action="act_ingrediente" />
+	</data>
+</odoo>

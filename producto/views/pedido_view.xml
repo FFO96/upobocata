@@ -1,0 +1,105 @@
+<odoo>
+	<data>
+
+		<record id="increment_id_pedido_sequence" model="ir.sequence">
+			<field name="name">Field Incrementation</field>
+			<field name="code">increment_id_pedido</field>
+			<field name="prefix"></field>
+			<field name="padding">3</field>
+			<field name="company_id" eval="False" />
+		</record>
+
+		<record model="ir.ui.view" id="producto_pedido_form">
+			<field name="name">producto_pedido_form</field>
+			<field name="model">producto.pedido</field>
+			<field name="arch" type="xml">
+				<form string="Form of pedido">
+					<header>
+						<button name="action_create" type="object" string="Crear"
+							states="crear_pedido" />
+						<button name="action_realized" type="object"
+							string="Realizar" states="pedido_realizado" class="oe_highlight" />
+						<button name="action_client" type="object"
+							string="Coger datos cliente" states="crear_pedido" />
+						<button name="action_deliver" type="object"
+							string="Repartir" states="pedido_en_reparto" class="oe_highlight" />
+						<button name="action_delivered" type="object"
+							string="Entregar" states="pedido_entregado" class="oe_highlight" />
+						<field name="state" widget="statusbar" />
+					</header>
+					<group string="Pedidos">
+						<field name="name" />
+						<field name="fecha_hora" />
+						<field name="hora_reparto" />
+						<field name="fecha_hora_realizacion" />
+						<field name="cliente_id" />
+						<field name="observaciones" />
+						<field name="nombre_cliente" />
+						<field name="direccion_envio" />
+						<field name="importe_total" />
+						<field name="local_id" />
+						<field name="empleado_id" />
+						<field name="oferta_id" />
+						<field name="en_reparto" />
+					</group>
+					<field name="stockbocata_ids" nolabel="1" colspan="4">
+						<tree>
+							<field name="name" />
+							<field name="nombre" />
+							<field name="cantidad" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="producto_pedido_tree_view">
+			<field name="name">producto_pedido_tree_view</field>
+			<field name="model">producto.pedido</field>
+			<field name="arch" type="xml">
+
+				<tree>
+					<field name="name" />
+					<field name="fecha_hora" />
+					<field name="hora_reparto" />
+					<field name="fecha_hora_realizacion" />
+					<field name="cliente_id" />
+					<field name="observaciones" />
+					<field name="nombre_cliente" />
+					<field name="direccion_envio" />
+					<field name="importe_total" />
+					<field name="local_id" />
+					<field name="empleado_id" />
+					<field name="oferta_id" />
+					<field name="en_reparto" />
+				</tree>
+			</field>
+		</record>
+
+		
+		<record model="ir.ui.view" id="pedido_calendar_view">
+		<field name="name">Pedidos</field>
+		<field name="model">producto.pedido</field>
+		<field name="arch" type="xml">
+		<calendar string="Calendar View"
+		date_start="fecha_hora"
+		date_delay="hora_reparto"
+		color="name">
+		<field name="name" />
+		</calendar>
+		</field>
+		</record>
+
+
+		<record id="act_pedido" model="ir.actions.act_window">
+			<field name="name">Pedidos</field>
+			<field name="res_model">producto.pedido</field>
+			<field name="view_mode">tree,form,calendar</field>
+		</record>
+		<menuitem id="producto" name="Producto" action="act_pedido" />
+		<menuitem name="Pedidos" id="pedido_submenu"
+			parent="producto" sequence="100" />
+		<menuitem name="Ver Pedidos" id="pedido_submenu_2"
+			parent="pedido_submenu" sequence="100" action="act_pedido" />
+	</data>
+	</odoo>
